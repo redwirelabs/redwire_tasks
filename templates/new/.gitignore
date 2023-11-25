@@ -1,0 +1,9 @@
+/.fetch
+/_build/
+/cover/
+/data/
+/deps/
+/doc/
+/tmp/
+erl_crash.dump
+.envrc

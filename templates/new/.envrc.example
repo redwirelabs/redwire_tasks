@@ -1,0 +1,15 @@
+# GitHub credentials to access the <%= nerves_system %> release artifact.
+#
+# Generate a GitHub token from:
+#   Settings -> Developer settings -> Personal access tokens -> Fine-grained tokens
+#
+# Allow read access to `code` and `metadata`.
+export ARTIFACT_GITHUB_USER=""
+export ARTIFACT_GITHUB_TOKEN=""
+
+# Path to a local Nerves system. (optional)
+# export NERVES_SYSTEM_PATH="../<%= nerves_system %>"
+
+# GitHub users who have SSH access. (optional)
+# Separate users with a space or new line.
+# export SSH_GITHUB_USERS=""
