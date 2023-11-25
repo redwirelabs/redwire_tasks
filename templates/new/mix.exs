@@ -115,8 +115,8 @@ defmodule <%= app_module %>.MixProject do
       _ ->
         {
           :<%= nerves_system %>,
-          ref: "",
-          github: "redwirelabs/<%= nerves_system %>",
+          ref: "<%= github_ref %>",
+          github: "<%= github_org %>/<%= nerves_system %>",
           runtime: false,
           targets: :<%= target_name %>
         }
