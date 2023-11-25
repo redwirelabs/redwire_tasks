@@ -17,6 +17,7 @@ defmodule <%= app_module %>.MixProject do
       aliases: aliases(),
       deps: deps(),
       docs: docs(),
+      lockfile: "mix.#{Mix.target}.lock",
       releases: [{@app, release()}],
       test_coverage: [tool: Coverex.Task, ignore_modules: Coverage.ignore_modules()],
       dialyzer: [
@@ -47,6 +48,8 @@ defmodule <%= app_module %>.MixProject do
   defp aliases do
     [
       "coverage.show": ["test", &open("cover/modules.html", &1)],
+      "deps.targets.get": [&cmd_all_targets("mix deps.get", &1)],
+      "deps.targets.update": [&cmd_all_targets("mix deps.update", &1)],
       "docs.show": ["docs", &open("doc/index.html", &1)],
       test: "espec --cover",
     ]
@@ -151,5 +154,22 @@ defmodule <%= app_module %>.MixProject do
       || raise "Could not find executable 'open' or 'xdg-open'"
 
     System.cmd(open_command, [file])
+  end
+
+  # Execute a system command for each of the project's targets.
+  defp cmd_all_targets(command, args) do
+    targets = [:host | @all_targets]
+    command = String.trim_trailing(command <> " " <> Enum.join(args, " "))
+
+    Enum.each(targets, fn target ->
+      IO.puts IO.ANSI.format([:cyan, :bright, "TARGET: #{target}"])
+      IO.puts IO.ANSI.format([:cyan, "$ #{command}\n"])
+
+      exit_code =
+        Mix.Shell.IO.cmd(command, env: [{"MIX_TARGET", to_string(target)}])
+
+      if exit_code != 0,
+        do: exit {:shutdown, exit_code}
+    end)
   end
 end
