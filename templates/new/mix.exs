@@ -17,7 +17,6 @@ defmodule <%= app_module %>.MixProject do
       aliases: aliases(),
       deps: deps(),
       docs: docs(),
-      lockfile: "mix.#{Mix.target}.lock",
       releases: [{@app, release()}],
       test_coverage: [tool: Coverex.Task, ignore_modules: Coverage.ignore_modules()],
       dialyzer: [
