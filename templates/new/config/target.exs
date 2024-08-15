@@ -1,6 +1,6 @@
 import Config
 
-config :shoehorn, init: [:nerves_runtime, :nerves_pack]
+config :shoehorn, init: [:nerves_runtime]
 
 config :nerves, :erlinit, update_clock: true
 
