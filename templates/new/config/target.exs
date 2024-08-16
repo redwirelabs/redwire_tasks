@@ -19,11 +19,11 @@ config :nerves,
 #   fwup_public_keys: [""]
 
 config :sentry,
-    dsn: "",
-    tags: %{version: Mix.Project.config()[:version]},
-    included_environments: [:prod],
-    enable_source_code_context: true,
-    root_source_code_paths: [File.cwd!()]
+  dsn: "",
+  tags: %{version: Mix.Project.config()[:version]},
+  included_environments: [:prod],
+  enable_source_code_context: true,
+  root_source_code_paths: [File.cwd!()]
 
 config :vintage_net,
   regulatory_domain: "US",
