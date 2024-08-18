@@ -11,3 +11,11 @@ IO.puts IO.ANSI.format([
 ])
 
 exit :normal
+
+# ---------------------------------------------------------------------------- #
+# To enable the formatter, remove the code above and uncomment the code below.
+# ---------------------------------------------------------------------------- #
+
+# [
+#   inputs: ["{mix,.formatter}.exs", "{config,lib,test}/**/*.{ex,exs}"]
+# ]
