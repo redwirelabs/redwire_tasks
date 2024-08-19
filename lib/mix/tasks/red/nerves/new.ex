@@ -30,7 +30,7 @@ defmodule Mix.Tasks.Red.Nerves.New do
 
   use Mix.Task
 
-  @template_dir "templates/new"
+  @template_dir Path.expand("../../../../../templates/new", __DIR__)
 
   @impl Mix.Task
   def run(args) do
