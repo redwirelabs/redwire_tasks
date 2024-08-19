@@ -34,6 +34,8 @@ defmodule Mix.Tasks.Red.Nerves.New do
 
   @impl Mix.Task
   def run(args) do
+    IO.inspect @template_dir, label: "template_dir"
+
     {opts, argv} = OptionParser.parse!(args, strict: [
       app: :string,
       module: :string,
